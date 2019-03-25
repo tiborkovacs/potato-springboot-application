@@ -1,0 +1,6 @@
+dependencies {
+    compile project(':api')
+    compile project(':dao')
+
+    implementation group: 'org.springframework', name: 'spring-context'
+}

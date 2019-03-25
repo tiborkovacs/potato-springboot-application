@@ -3,4 +3,10 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
+
 rootProject.name = 'potato-application'
+
+include 'api'
+include 'dao'
+include 'service'
+include 'web'

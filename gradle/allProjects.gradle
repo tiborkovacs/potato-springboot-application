@@ -1,0 +1,15 @@
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    group = 'com.epam'
+    version = '0.0.1-SNAPSHOT'
+
+    sourceCompatibility = 11
+    targetCompatibility = 11
+
+    dependencies {
+        implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
+    }
+}

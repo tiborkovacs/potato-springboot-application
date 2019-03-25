@@ -1,21 +1,31 @@
-plugins {
-	id 'org.springframework.boot' version '2.1.3.RELEASE'
-	id 'java'
-}
-
-apply plugin: 'io.spring.dependency-management'
-
-group = 'com.epam'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
-
 repositories {
 	mavenCentral()
+	mavenLocal()
 }
 
+buildscript {
+	ext {
+		springBootVersion = '2.1.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply from: "gradle/allProjects.gradle"
+apply from: "gradle/subProjects.gradle"
+
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile project(':web')
+	compileOnly files { project(':web').sourceSets.main.output }
+
+	implementation group: 'com.h2database', name: 'h2', version: '1.4.199'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
