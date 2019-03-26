@@ -1,4 +1,6 @@
 subprojects {
+    apply plugin: 'jacoco'
+
     repositories {
         mavenCentral()
         mavenLocal()
@@ -14,6 +16,8 @@ subprojects {
 
     test {
         useTestNG()
+
+        finalizedBy jacocoTestReport, jacocoTestCoverageVerification
     }
 
     dependencies {

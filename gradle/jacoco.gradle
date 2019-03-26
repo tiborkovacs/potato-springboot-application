@@ -1,0 +1,29 @@
+def jacocoExclusions = [
+        '**/*Configuration.*',
+        '**/*Exception.*',
+        '**/*ExceptionHandler.*'
+]
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.9
+            }
+        }
+    }
+
+    afterEvaluate {
+        getClassDirectories().setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, excludes: jacocoExclusions)
+        }))
+    }
+}
+
+jacocoTestReport {
+    afterEvaluate {
+        getClassDirectories().setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, excludes: jacocoExclusions)
+        }))
+    }
+}

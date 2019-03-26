@@ -1,3 +1,5 @@
+apply from: "../gradle/jacoco.gradle"
+
 ext {
     swaggerVersion = '2.9.2'
 }
