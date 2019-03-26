@@ -18,6 +18,10 @@ import com.epam.potato.api.domain.bag.PotatoBag;
 import com.epam.potato.service.bag.PotatoBagService;
 import com.epam.potato.service.bag.exception.UnableToCreatePotatoBagException;
 
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping(value = "/api/bags")
 public class PotatoBagRestController {
@@ -27,11 +31,16 @@ public class PotatoBagRestController {
     @Autowired
     private PotatoBagService potatoBagService;
 
+    @ApiOperation(value = "Retrieve Potato Bags")
+    @ApiImplicitParams({
+        @ApiImplicitParam(name = "count", value = "count", defaultValue = "3")
+    })
     @GetMapping
     public List<PotatoBag> getPotatoBags(@RequestParam(name = "count", required = false, defaultValue = "3") int count) {
         return potatoBagService.getPotatoBags(count);
     }
 
+    @ApiOperation(value = "Create new Potato Bag")
     @PostMapping
     public PotatoBag createPotatoBag(@Valid @RequestBody PotatoBag potatoBag) {
         try {

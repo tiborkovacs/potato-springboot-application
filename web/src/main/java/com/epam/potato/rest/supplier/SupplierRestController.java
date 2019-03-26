@@ -17,6 +17,8 @@ import com.epam.potato.api.domain.supplier.Supplier;
 import com.epam.potato.service.supplier.SupplierService;
 import com.epam.potato.service.supplier.exception.UnableToCreateSupplierException;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping(value = "/api/suppliers")
 public class SupplierRestController {
@@ -26,11 +28,13 @@ public class SupplierRestController {
     @Autowired
     private SupplierService supplierService;
 
+    @ApiOperation(value = "Retrieve all Suppliers")
     @GetMapping
     public List<Supplier> getSuppliers() {
         return supplierService.getSuppliers();
     }
 
+    @ApiOperation(value = "Create new Supplier")
     @PostMapping
     public Supplier createSupplier(@Valid @RequestBody Supplier supplier) {
         try {

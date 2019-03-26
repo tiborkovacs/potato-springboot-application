@@ -1,5 +1,11 @@
+ext {
+    swaggerVersion = '2.9.2'
+}
+
 dependencies {
     compile project(':service')
 
     compile('org.springframework.boot:spring-boot-starter-web')
+    implementation group: 'io.springfox', name: 'springfox-swagger2', version: swaggerVersion
+    implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: swaggerVersion
 }
