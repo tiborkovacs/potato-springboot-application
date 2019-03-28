@@ -1,6 +1,6 @@
 version: "3"
 services:
   ep_blog:
-    image: com.epam/potato-application:latest
+    image: com.epam/potato-springboot-application:latest
     ports:
       - "8080:8080"

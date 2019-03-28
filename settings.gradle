@@ -4,7 +4,7 @@ pluginManagement {
 	}
 }
 
-rootProject.name = 'potato-application'
+rootProject.name = 'potato-springboot-application'
 
 include 'api'
 include 'dao'

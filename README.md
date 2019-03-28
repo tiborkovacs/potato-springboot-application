@@ -14,7 +14,7 @@ Some dummy data is populated during the startup time:
 * Build:
   * Execute `./gradlew bootRun` to compile and start the Spring Boot application
   * OR execute `./gradlew docker` to build Docker image
-    * Execute `docker-compose up` OR `docker run -p 8080:8080 com.epam/potato-application` to start the Docker container
+    * Execute `docker-compose up` OR `docker run -p 8080:8080 com.epam/potato-springboot-application` to start the Docker container
 * Open http://localhost:8080/swagger-ui.html and you can start hacking
 
 If you prefer to use Postman or any other REST tools, you can access the application via the following URLs:
