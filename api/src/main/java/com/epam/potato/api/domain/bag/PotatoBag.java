@@ -21,7 +21,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class PotatoBag {
 
     @Min(0)
-    private final long id;
+    private final String id;
     @Min(1)
     @Max(100)
     private final int numberOfPotatoes;
@@ -34,14 +34,14 @@ public class PotatoBag {
     private final double price;
 
     private PotatoBag(Builder builder) {
-        id = Optional.ofNullable(builder.id).orElse(0L);
+        id = Optional.ofNullable(builder.id).orElse("");
         numberOfPotatoes = Optional.ofNullable(builder.numberOfPotatoes).orElse(0);
         supplierName = builder.supplierName;
         packedDateTime = builder.packedDateTime;
         price = Optional.ofNullable(builder.price).orElse(0D);
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -78,13 +78,13 @@ public class PotatoBag {
 
     public static class Builder {
 
-        private Long id;
+        private String id;
         private Integer numberOfPotatoes;
         private String supplierName;
         private LocalDateTime packedDateTime;
         private Double price;
 
-        public Builder withId(Long id) {
+        public Builder withId(String id) {
             this.id = id;
 
             return this;

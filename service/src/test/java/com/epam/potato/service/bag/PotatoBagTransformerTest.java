@@ -26,7 +26,7 @@ import com.epam.potato.service.supplier.exception.SupplierNotFoundException;
 
 public class PotatoBagTransformerTest {
 
-    private static final long ID = 1L;
+    private static final String ID = "id";
     private static final int NUMBER_OF_POTATOES = 20;
     private static final String SUPPLIER_NAME = "supplierName";
     private static final Date PACKED_DATE = new Date();
@@ -109,7 +109,7 @@ public class PotatoBagTransformerTest {
             .build();
     }
 
-    private PotatoBagEntity createPotatoBagEntity(Long id) {
+    private PotatoBagEntity createPotatoBagEntity(String id) {
         PotatoBagEntity potatoBagEntity = new PotatoBagEntity();
 
         Optional.ofNullable(id).ifPresent(potatoBagEntity::setId);

@@ -17,6 +17,7 @@ import javax.persistence.TemporalType;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.hibernate.annotations.GenericGenerator;
 
 import com.epam.potato.dao.entity.supplier.SupplierEntity;
 
@@ -25,9 +26,10 @@ import com.epam.potato.dao.entity.supplier.SupplierEntity;
 public class PotatoBagEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GenericGenerator(name = "uuidGenerator", strategy = "uuid")
+    @GeneratedValue(generator = "uuidGenerator")
     @Column(nullable = false, unique = true)
-    private long id;
+    private String id;
     @Column(nullable = false, name = "number_of_potatoes")
     private int numberOfPotatoes;
     @JoinColumn(name = "supplier_id", nullable = false)
@@ -39,11 +41,11 @@ public class PotatoBagEntity {
     @Column(nullable = false)
     private double price;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
